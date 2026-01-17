@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact – The Store Flight</title>
+
+<style>
+body{
+  margin:0;
+  font-family: 'Segoe UI', Arial, sans-serif;
+  background: linear-gradient(135deg, #0b3c5d, #145f82);
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  min-height:100vh;
+}
+
+.form-container{
+  background:#ffffff;
+  width:100%;
+  max-width:420px;
+  padding:35px;
+  border-radius:18px;
+  box-shadow:0 15px 35px rgba(0,0,0,0.25);
+}
+
+h2{
+  text-align:center;
+  color:#0b3c5d;
+}
+
+p{
+  text-align:center;
+  color:#555;
+  font-size:14px;
+  margin-bottom:25px;
+}
+
+input, select, textarea{
+  width:100%;
+  padding:12px;
+  margin-bottom:15px;
+  border-radius:10px;
+  border:1px solid #ccc;
+  font-size:15px;
+}
+
+textarea{
+  resize:none;
+  height:110px;
+}
+
+button{
+  width:100%;
+  padding:14px;
+  border:none;
+  border-radius:30px;
+  background: linear-gradient(90deg,#0b3c5d,#145f82);
+  color:#fff;
+  font-size:16px;
+  font-weight:bold;
+  cursor:pointer;
+}
+
+button:hover{
+  opacity:0.9;
+}
+</style>
+</head>
+
+<body>
+
+<div class="form-container">
+  <h2>Contact The Store Flight</h2>
+  <p>Réponse rapide sur WhatsApp</p>
+
+  <input type="text" id="nom" placeholder="Votre nom" required>
+  <input type="tel" id="phone" placeholder="Votre numéro WhatsApp">
+  <select id="service">
+    <option>Billet d’avion</option>
+    <option>Visa Schengen</option>
+    <option>eVisa</option>
+    <option>Hôtel</option>
+    <option>Voyage organisé</option>
+  </select>
+  <textarea id="message" placeholder="Votre message"></textarea>
+
+  <button onclick="envoyerWhatsApp()">Envoyer sur WhatsApp</button>
+</div>
+
+<script>
+function envoyerWhatsApp(){
+  var nom = document.getElementById("nom").value;
+  var phone = document.getElementById("phone").value;
+  var service = document.getElementById("service").value;
+  var message = document.getElementById("message").value;
+
+  var texte = 
+    "Bonjour The Store Flight,%0A%0A" +
+    "Nom : " + nom + "%0A" +
+    "Téléphone : " + phone + "%0A" +
+    "Service : " + service + "%0A%0A" +
+    "Message : " + message;
+
+  var url = "https://wa.me/221762383780?text=" + texte;
+  window.open(url, "_blank");
+}
+</script>
+
+</body>
+</html>
